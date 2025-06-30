@@ -169,7 +169,7 @@ header nav a {
 }
 
 .carousel-indicators .dot {
-    height: 10px;
+    height: 20px;
     width: 10px;
     background-color: #ccc;
     border-radius: 50%;
@@ -262,7 +262,6 @@ header nav a {
     gap: 12px;
 }
 
-.marcas-navegacao button {
 /* Reset e fontes */
 * {
     margin: 0;
@@ -751,9 +750,6 @@ footer p.copyright {
     font-size: 0.9rem;
     color: #f0d6e0;
 }
-
-}
-
 .marcas-navegacao button:hover {
     background: #f2e6ea;
 }
