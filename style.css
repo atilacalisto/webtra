@@ -16,19 +16,20 @@ body {
 
 /* Header */
 header {
-    background: white;
-    color: #942A59;
+    background: #942A59; /* fundo rosa mais forte */
+    color: white;        /* texto branco para contraste */
     padding: 16px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 5px solid #751f45; /* borda inferior mais grossa e escura */
 }
 
 /* Logo */
 .logo {
     font-weight: bold;
     font-size: 1.5rem;
-    color: #942A59;
+    color: white; /* branco para contraste */
 }
 
 /* Menu principal */
@@ -39,7 +40,7 @@ header nav {
 }
 
 header nav a {
-    color: #942A59;
+    color: white; /* links em branco */
     text-decoration: none;
     font-weight: 500;
 }
@@ -51,47 +52,62 @@ header nav a {
     align-items: center;
 }
 
-/* Ícones */
+/* Ícones - ajustado tamanho e hover */
 .nav-icons a img {
-    width: 24px;
-    height: 24px;
-    filter: invert(29%) sepia(77%) saturate(657%) hue-rotate(308deg) brightness(93%) contrast(88%);
+    width: 20px;
+    height: 20px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
 .nav-icons a:hover img {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 /* Banner */
 .banner {
-    background: linear-gradient(
-      to right,
-      #942A59,
-      #f8f8f8 50%,
-      #942A59
-    );
-    padding: 40px;
     position: relative;
+    background: linear-gradient(90deg, #751f45 0%, #942A59 50%, #f8f8f8 100%);
+    padding: 40px;
     height: 250px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     padding-right: 32px;
     margin-bottom: 60px;
+    overflow: hidden;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+    opacity: 0.05; /* Menos granulado */
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
 }
 
 .banner h1 {
+    position: relative;
+    z-index: 2;
     font-size: 2.5rem;
     color: #fff;
     font-weight: 600;
-    margin: 0;
     line-height: 1.2;
     text-align: right;
 }
 
+/* O restante do seu CSS permanece igual */
+
+
 /* Produtos */
+
+
+
+
 .produtos-header {
     display: flex;
     justify-content: center;
@@ -154,14 +170,22 @@ header nav a {
     min-width: 250px;
     scroll-snap-align: start;
     position: relative;
-}
+    display: flex;
+    flex-direction: column;
+  }
 
-.carousel .produto-card img {
-    max-width: 100%;
-    border-radius: 10px;
+
+  .carousel .produto-card img {
+    height: 180px;          /* altura fixa que você gostou */
+    width: auto;            /* largura automática para manter proporção */
+    max-width: 100%;        /* não ultrapassa a largura do card */
+    object-fit: contain;
+    margin-bottom: 16px;
     display: block;
-    margin-bottom: 12px;
-}
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
 
 .carousel .produto-card h3 {
     font-size: 1rem;
@@ -298,7 +322,7 @@ header nav a {
     border-radius: 8px;          /* Cantos suavemente arredondados */
     cursor: pointer;
     font-weight: 700;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);  /* Sombra mais evidente */
+    box-shadow: 0 3px 8px rgba(0,0,0,0,1);  /* Sombra mais evidente */
     transition: background-color 0.3s ease;
 }
 
@@ -517,7 +541,7 @@ footer p.copyright {
     background-color: #942A59; /* Rosa suave */
     padding: 40px 20px;
     font-family: 'Inter', sans-serif;
-    text-align: center;
+    text-align: start;
     overflow: hidden;
 }
 
@@ -573,4 +597,193 @@ footer p.copyright {
     color: #333;
     line-height: 1.4;
     margin: 0;
+}
+
+/* Avaliações do Cliente - nova seção */
+.avaliacoes-cliente {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.avaliacoes-cliente h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #751f45;
+}
+
+.btn-ver-todas-avaliacoes {
+  background-color: #942A59;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn-ver-todas-avaliacoes:hover {
+  background-color: #751f45;
+}
+
+.nota-geral-carousel {
+  margin-bottom: 40px;
+}
+
+.nota-geral-card {
+  background: #f5f5f5;
+  border-radius: 16px;
+  padding: 30px 40px;
+  max-width: 300px;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+.nota-numero {
+  font-size: 48px;
+  font-weight: 700;
+  color: #942A59;
+  margin-bottom: 6px;
+}
+
+.nota-numero span {
+  font-size: 24px;
+  color: #666;
+}
+
+.estrelas {
+  font-size: 32px;
+  color: #ffb400;
+  margin-bottom: 6px;
+  user-select: none;
+}
+
+.views {
+  font-size: 16px;
+  color: #666;
+}
+
+.avaliacoes-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.avaliacoes-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.avaliacoes-carousel::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 8px;
+}
+
+.avaliacoes-carousel::-webkit-scrollbar-thumb {
+  background-color: #942A59;
+  border-radius: 8px;
+}
+
+.avaliacao-card {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 280px;
+  flex-shrink: 0;
+  text-align: left;
+  color: #444;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.avaliacao-card p {
+  font-style: italic;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.avaliacao-card span {
+  font-weight: 600;
+  color: #942A59;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .nota-geral-card {
+    max-width: 100%;
+    padding: 20px;
+  }
+  .avaliacao-card {
+    min-width: 240px;
+    font-size: 14px;
+  }
+  .btn-ver-todas-avaliacoes {
+    padding: 10px 25px;
+  }
+}
+
+/* Formas de pagamento no footer */
+.formas-pagamento {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.formas-pagamento {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.formas-pagamento img {
+    height: 30px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    cursor: default;
+}
+
+.formas-pagamento img.preto-branco:hover {
+    filter: grayscale(0%);
+}
+
+/* Ajustes finais de responsividade para footer */
+@media (max-width: 768px) {
+    header nav {
+        display: none; /* esconder menu para mobile, você pode ajustar */
+    }
+
+    .nav-icons {
+        gap: 14px;
+    }
+
+    .carousel {
+        padding-bottom: 30px;
+    }
+
+    .produto-card {
+        min-width: 200px;
+    }
+
+    .marcas-banner {
+        padding: 20px 10px;
+    }
+
+    .footer-info {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
